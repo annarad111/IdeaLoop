@@ -9,14 +9,16 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+  margin: 0;
 }
 
 * {
   box-sizing: border-box;
+  /* overflow: hidden; */
 }
 
 .full-page-controls button{
-  text-indent: -9000px;
+   text-indent: -9000px;
    text-transform: capitalize;
    border-radius: 50%;
    height: 13px;
@@ -27,3 +29,110 @@ a {
    display: inline-block;
    margin: 4px 2px;
 }
+
+.homepagevideo{
+  object-fit: cover;
+  /* height: auto !important; */
+  margin: 0;
+}
+
+.videodiv{
+  display: flex;
+
+}
+
+.container {
+  position: absolute;
+  margin: 20px;
+  width: auto;
+}
+
+/* The navbar */
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+/* Navbar links */
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+section{
+  display:flex;
+  justify-content :center;
+  align-items:center;
+  width :100%;
+  height :100vh;
+  overflow :hidden;
+}
+  
+.video2{
+  position:absolute;
+  top :0;
+  left:0;
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+  
+.videoback{
+  z-index:1;
+  width:40rem;
+  text-align:center;
+  text-shadow:1px 1px 1px #000;
+  color :#fefefe;
+}
+
+  
+  
+.titleonvideo{
+  line-height:1.125;
+  margin:0;
+  font-family:'Open Sans';
+  font-size:4rem;
+  font-weight:800;
+}
+  
+
+  
+/* button{
+  cursor:pointer;
+  padding:0.5rem;
+  border:1px solid transparent;
+  border-radius:0.25rem;
+  color:#fefefe;
+  background-color:#e55;
+  font-weight:600;
+  transition: .2s ease;
+}
+  
+  
+  button:hover{
+    background-color:darken(#e55, 10%);
+  } */
+    
+  
+.overlay{
+  position:absolute;
+  z-index:1;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background-color:rgba(0, 0, 0, 0.5);
+
+}
+  
+

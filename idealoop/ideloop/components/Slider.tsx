@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { FullPage, Slide } from 'react-full-page';
 
+
 const controlsProps = {
   style: {
     left: '95%',
@@ -49,16 +50,37 @@ export default function FullPageExample() {
   return (
     <>
       <FullPage controls controlsProps={controlsProps}>
-        {visibleSlides.map(({ color, content }) => (
-          <Slide
-            key={content}
-            style={{
-              background: color, display: 'flex', alignItems: 'center', justifyContent: 'center',
-            }}
-          >
-            <h1>{content}</h1>
+      <Slide>
+          <section>
+            <div className="overlay"></div>
+                <video src='/videos/homepage.mp4' autoPlay loop muted className='video2'></video>
+                <div className='videoback'>
+                    <h1 className='titleonvideo'>VIDEO ON BACKGROUND</h1>
+            </div>
+        </section>
           </Slide>
-        ))}
+          <Slide>
+              <div className='videodiv'>
+            <video autoPlay muted loop className='homepagevideo'>
+                <source src='/videos/homepage.mp4' type="video/mp4"/>
+            </video>
+            </div>
+          </Slide>
+
+          <Slide>
+            <video autoPlay muted loop className='homepagevideo'>
+                <source src='/videos/homepage.mp4' type="video/mp4"/>
+            </video>
+          </Slide>
+          <Slide>
+              <div>
+            <video autoPlay muted loop className='homepagevideo'>
+                <source src='/videos/homepage.mp4' type="video/mp4"/>
+            </video>
+            
+            </div>
+          </Slide>
+        
       </FullPage>
     </>
   );

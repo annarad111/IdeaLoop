@@ -114,3 +114,28 @@
     flex-direction: column;
   }
 }
+
+.full-page-controls button{
+  text-indent: -9000px;
+  text-transform: capitalize;
+  border-radius: 50%;
+  height: 13px;
+  color: rgb(0, 0, 0);
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+}
+
+.homepagevideo{
+ height: 800px;
+ width: 100%;
+ margin-top: 50px;
+ left:10%;
+}
+
+.videodiv{
+ display: flex;
+
+}

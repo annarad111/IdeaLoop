@@ -1,10 +1,10 @@
 import {Prisma } from '@prisma/client';
 import Head from 'next/head';
-import { Container } from '@mui/material';
-import styles from '../styles/Home.module.css';
+import '../styles/Home.module.css';
 import prisma from '../../ideloop/lib/prisma';
 import { fetcher } from '../utils/fetcher';
 import { useState } from 'react';
+import Navbar from '../components/Navbar';
 import Slider from '../components/Slider';
 
 export async function getServerSideProps(){
@@ -49,21 +49,18 @@ export default function Home({ initialUsers }) {
   }
 
   return (
-    <>
+    <div>
       <Head>
       <link
         rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
       />
       </Head>
+      
+    <Navbar />
+    <Slider />
+    </div>
 
-     <Slider></Slider>
-    <Container style={{ margin: 20 }}>
-
-        
-
-    </Container>
-    </>
 
   )
 }
