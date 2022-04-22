@@ -14,3 +14,16 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.full-page-controls button{
+  text-indent: -9000px;
+   text-transform: capitalize;
+   border-radius: 50%;
+   height: 13px;
+   color: rgb(0, 0, 0);
+   border: none;
+   text-align: center;
+   text-decoration: none;
+   display: inline-block;
+   margin: 4px 2px;
+}
