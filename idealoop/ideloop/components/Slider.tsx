@@ -1,4 +1,5 @@
 
+import Link from 'next/link';
 import React, { useState } from 'react';
 import { FullPage, Slide } from 'react-full-page';
 
@@ -51,15 +52,24 @@ export default function FullPageExample() {
     <>
       <FullPage controls controlsProps={controlsProps}>
       <Slide>
-          <section>
+          <section className='sec'>
             <div className="overlay"></div>
                 <video src='/videos/homepage.mp4' autoPlay loop muted className='video2'></video>
                 <div className='videoback'>
-                    <h1 className='titleonvideo'>VIDEO ON BACKGROUND</h1>
+                    <h1 className='titleonvideo'>Helping programmers</h1>
+                    <button className='buttononvid'>
+                    <Link href="/about">
+                <a>Learn more</a>
+                </Link></button>
             </div>
         </section>
           </Slide>
-          <Slide>
+          <Slide className='slide2'>
+            <div className='slide2'>
+
+            </div>
+          </Slide>
+          {/* <Slide>
               <div className='videodiv'>
             <video autoPlay muted loop className='homepagevideo'>
                 <source src='/videos/homepage.mp4' type="video/mp4"/>
@@ -79,7 +89,7 @@ export default function FullPageExample() {
             </video>
             
             </div>
-          </Slide>
+          </Slide> */}
         
       </FullPage>
     </>

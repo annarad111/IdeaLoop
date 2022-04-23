@@ -15,8 +15,8 @@ model User{
   firstName String
   lastName String
   role Role @default(DEVELOPER)
-  email String
-  avatar String
+  email String @unique
+  password String
 }
 
 enum Role{
