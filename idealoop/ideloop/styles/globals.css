@@ -144,13 +144,14 @@ a {
   
   
 .titleonvideo{
-  line-height:1.125;
-  margin:0;
-  font-family:'Open Sans';
-  font-size:4rem;
+  font-size:2rem;
   font-weight:800;
   overflow-x: hidden;
   margin:0;
+}
+
+.titlelogo{
+  font-size: 4rem;
 }
   
 
@@ -193,4 +194,16 @@ a {
 .logon{
   font-size: 3em;
   color: white;
+}
+
+.userdetails{
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+
+}
+
+.profile:hover{
+  background-color: #ddd;
+  cursor: pointer;
 }

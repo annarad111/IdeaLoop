@@ -1,7 +1,6 @@
 import prisma from '../../lib/prisma'
 import { NextApiRequest, NextApiResponse } from "next"
 import * as bcrypt from "bcrypt";
-import getConfig from 'next/config';
 
 
 
@@ -11,7 +10,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     }
     try {
       const {user} = req.body
-      console.log(user);
         if(user.email == null || user.password == null){
             res.status(400).json({message: 'All fields are required'})
         }
@@ -21,7 +19,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
               email: user.email,
           }  
       })
-      console.log(login);
       if(!bcrypt.compareSync(user.password, login.password )){
        res.status(402).json({message: "The passwords do not match"});
       }

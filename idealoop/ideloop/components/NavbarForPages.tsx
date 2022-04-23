@@ -1,9 +1,7 @@
-import styles from '../styles/globals.css';
-import Link from 'next/link';
-import Avatar from "@mui/material/Avatar";
+import Link from 'next/link'
 
 
-export default function Navbar(){
+export default function NavbarForPages(){
     const currentUser = window.localStorage.getItem('user');
     
     const logOut = async (e) => {
@@ -14,9 +12,9 @@ export default function Navbar(){
 
     return(
         <>
-        <div className="bg-img">
-            <div className="container">
-                <div className='logonav'>
+        <div>
+            <div>
+                <div >
                 <Link href="/">
                 <a className='logon'>IdeaLoop</a>
                 </Link>
@@ -37,10 +35,8 @@ export default function Navbar(){
                 </div>
                 {currentUser !== null ? (
                                     <div className='topnav'>
-                                    
                                     <Link href="account/profile">
-                                    <Avatar src="/broken-image.jpg" className='profile' />
-                                    {/* <a>Profile</a> */}
+                                    <a>Profile</a>
                                     </Link>
                                     <Link href="/">
                                     <a onClick={logOut}>Log out</a>

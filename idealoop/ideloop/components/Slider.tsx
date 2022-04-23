@@ -56,7 +56,8 @@ export default function FullPageExample() {
             <div className="overlay"></div>
                 <video src='/videos/homepage.mp4' autoPlay loop muted className='video2'></video>
                 <div className='videoback'>
-                    <h1 className='titleonvideo'>Helping programmers</h1>
+                    <h1 className='titlelogo'>IdeaLoop</h1>
+                    <h2 className='titleonvideo'>Helping programmers</h2>
                     <button className='buttononvid'>
                     <Link href="/about">
                 <a>Learn more</a>
@@ -68,29 +69,7 @@ export default function FullPageExample() {
             <div className='slide2'>
 
             </div>
-          </Slide>
-          {/* <Slide>
-              <div className='videodiv'>
-            <video autoPlay muted loop className='homepagevideo'>
-                <source src='/videos/homepage.mp4' type="video/mp4"/>
-            </video>
-            </div>
-          </Slide>
-
-          <Slide>
-            <video autoPlay muted loop className='homepagevideo'>
-                <source src='/videos/homepage.mp4' type="video/mp4"/>
-            </video>
-          </Slide>
-          <Slide>
-              <div>
-            <video autoPlay muted loop className='homepagevideo'>
-                <source src='/videos/homepage.mp4' type="video/mp4"/>
-            </video>
-            
-            </div>
-          </Slide> */}
-        
+          </Slide>  
       </FullPage>
     </>
   );
