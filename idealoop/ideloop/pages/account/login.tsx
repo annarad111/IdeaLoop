@@ -14,6 +14,7 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Prisma } from '@prisma/client';
 import { fetcher } from '../../utils/fetcher';
+import { useRouter } from 'next/router';
 
 function Copyright(props: any) {
   return (
@@ -31,31 +32,30 @@ function Copyright(props: any) {
 const theme = createTheme();
 
 export default function SignIn() {
+  const router = useRouter();
 
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
 
   
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
-  };
 
-
-  const handleData =async () =>{
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     const body: Prisma.UserWhereInput={
       email,
       password
   };
-    
-    await fetcher("/api/login", {user: body})
-    
+    try {
+      await fetcher("/api/login", {user: body})
+      window.localStorage.setItem('user', JSON.stringify(body.email));
+      router.replace('/');
+    } catch (err) {
+      console.log(err.response.data);
+    }
+  }
+  
 
-}
+
 
   return (
     <ThemeProvider theme={theme}>
@@ -75,7 +75,7 @@ export default function SignIn() {
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
-          <Box component="form" onSubmit={handleData} noValidate sx={{ mt: 1 }}>
+          <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
             <TextField
               margin="normal"
               required
@@ -107,6 +107,7 @@ export default function SignIn() {
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
+
             >
               Sign In
             </Button>

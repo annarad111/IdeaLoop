@@ -18,6 +18,8 @@ import { useState } from 'react';
 import { useRouter } from 'next/router'
 import {  fetcher } from '../../utils/fetcher';
 
+
+
 function Copyright(props: any) {
   
   return (
@@ -41,6 +43,7 @@ export async function getServerSideProps(){
 const theme = createTheme();
 
 export default function SignUp({initialUsers}) {
+  const router = useRouter();
 
   const [users, setUsers] = useState<Prisma.UserUncheckedCreateInput[]>(initialUsers)
   const [firstName, setFirstname] = useState("");
@@ -50,22 +53,23 @@ export default function SignUp({initialUsers}) {
   const [role, setRole] = useState();
 
 
-  const handleData =async () =>{
-    const body: Prisma.UserCreateInput={
-      firstName,
-      lastName,
-      role,
-      email,
-      password
-  };
-    
-    await fetcher("/api/create", {user: body})
-    handleClick()
-}
-const router = useRouter();
 
-const handleClick = () => {
-  router.push("login")
+
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  const body: Prisma.UserCreateInput={
+    firstName,
+    lastName,
+    role,
+    email,
+    password
+};
+  try {
+    await fetcher("/api/create", {user: body})
+    router.replace('login');
+  } catch (err) {
+    console.log(err.response.data);
+  }
 }
 
     
@@ -88,7 +92,7 @@ const handleClick = () => {
           <Typography component="h1" variant="h5">
             Sign up
           </Typography>
-          <Box component="form" noValidate onSubmit={handleData} sx={{ mt: 3 }}>
+          <Box component="form" onSubmit={handleSubmit} noValidate  sx={{ mt: 3 }}>
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <TextField
@@ -150,7 +154,6 @@ const handleClick = () => {
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
-              onClick={handleData}
             >
               Sign Up
             </Button>

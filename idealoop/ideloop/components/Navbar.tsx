@@ -3,6 +3,14 @@ import Link from 'next/link'
 
 
 export default function Navbar(){
+    const currentUser = window.localStorage.getItem('user');
+    
+    const logOut = async (e) => {
+        e.preventDefault();
+        window.localStorage.removeItem('user');
+        window.location.reload();
+    }
+
     return(
         <>
         <div className="bg-img">
@@ -26,6 +34,16 @@ export default function Navbar(){
                 <a>About</a>
                 </Link>
                 </div>
+                {currentUser !== null ? (
+                                    <div className='topnav'>
+                                    <Link href="account/profile">
+                                    <a>Profile</a>
+                                    </Link>
+                                    <Link href="/">
+                                    <a onClick={logOut}>Log out</a>
+                                    </Link>
+                                    </div>
+                ):(
                 <div className='topnav'>
                 <Link href="account/login">
                 <a>Login</a>
@@ -33,7 +51,7 @@ export default function Navbar(){
                 <Link href="account/register">
                 <a>Register</a>
                 </Link>
-                </div>
+                </div>)}
             </div>
         </div>
         </>
