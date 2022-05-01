@@ -13,9 +13,10 @@ export default function Profile(){
             email: window.localStorage.getItem('user'),
         };
         try {
+          console.log(body)
           const userDetails = await fetcher("/api/getUser", {user: body})
           setUser(userDetails);
-          console.log(user)
+          
           
         } catch (err) {
           console.log(err);
@@ -34,12 +35,13 @@ export default function Profile(){
         <div>
         <Image width='500px' height='400px' src="/images/image_placeholder.png" />
         </div>
-        <div>
-        <h1>Hello {window.localStorage.getItem('user')}</h1>
-        <p>{user['firstName']}</p>
-        <p>{user['lastName']}</p>
-        <p>{user['role']}</p>
-        <p>{user['email']}</p>
+        <div className="userinformation">
+        <h1>Your Information</h1>
+        <h2>Hello {user['firstName']}</h2>
+        <p>First Name: {user['firstName']}</p>
+        <p>Last Name: {user['lastName']}</p>
+        <p>User Role: {user['role']}</p>
+        <p>User E-mail: {user['email']}</p>
         </div>
         </div>
         </>

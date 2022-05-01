@@ -13,13 +13,13 @@ export default function NavbarForPages(){
     return(
         <>
         <div>
-            <div>
-                <div >
+            <div className='navbarfor'>
+                <div className='logonavfor' >
                 <Link href="/">
-                <a className='logon'>IdeaLoop</a>
+                <a className='logonavpages'>IdeaLoop</a>
                 </Link>
                 </div>
-                <div className="topnav">
+                <div className="topnavfor">
                 <Link href="/">
                 <a>Home</a>
                 </Link>
@@ -34,7 +34,7 @@ export default function NavbarForPages(){
                 </Link>
                 </div>
                 {currentUser !== null ? (
-                                    <div className='topnav'>
+                                    <div className='leftlinksforpages'>
                                     <Link href="account/profile">
                                     <a>Profile</a>
                                     </Link>
@@ -43,7 +43,7 @@ export default function NavbarForPages(){
                                     </Link>
                                     </div>
                 ):(
-                <div className='topnav'>
+                <div className='leftlinksforpages'>
                 <Link href="account/login">
                 <a>Login</a>
                 </Link>

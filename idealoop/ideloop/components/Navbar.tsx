@@ -1,4 +1,4 @@
-import styles from '../styles/globals.css';
+
 import Link from 'next/link';
 import Avatar from "@mui/material/Avatar";
 
@@ -8,7 +8,7 @@ export default function Navbar(){
     
     const logOut = async (e) => {
         e.preventDefault();
-        window.localStorage.removeItem('user');
+        window.localStorage.removeItem("user");
         window.location.reload();
     }
 
@@ -47,7 +47,7 @@ export default function Navbar(){
                                     </Link>
                                     </div>
                 ):(
-                <div className='topnav'>
+                <div className='leftlinks'>
                 <Link href="account/login">
                 <a>Login</a>
                 </Link>

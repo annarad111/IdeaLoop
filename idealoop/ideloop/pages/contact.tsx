@@ -1,9 +1,10 @@
 import Navbar from "../components/Navbar";
+import NavbarForPages from "../components/NavbarForPages";
 
 export default function Contact(){
     return(
         <>
-        <Navbar></Navbar>
+        <NavbarForPages></NavbarForPages>
         <h1>Contact</h1>
         </>
     )

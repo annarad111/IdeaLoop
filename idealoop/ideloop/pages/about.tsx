@@ -1,9 +1,11 @@
-import Navbar from "../components/Navbar";
+
+import NavbarForPages from "../components/NavbarForPages";
+import CenteredTabs from "../components/VerticalTabs";
 
 export default function About(){
     return(
         <>
-        <Navbar/>
+        <NavbarForPages/>
         <h1>About</h1>
         </>
 

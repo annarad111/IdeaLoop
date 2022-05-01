@@ -10,17 +10,39 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User{
-  id Int @id @default(autoincrement())
+model User {
+  id        Int        @id @default(autoincrement())
   firstName String
-  lastName String
-  role Role @default(DEVELOPER)
-  email String @unique
-  password String
+  lastName  String
+  role      Role       @default(DEVELOPER)
+  email     String     @unique
+  password  String
+  question  Question[]
+  answer    Answer[]
 }
 
-enum Role{
+enum Role {
   USER
   ADMIN
   DEVELOPER
+}
+
+model Question {
+  id          Int      @id @default(autoincrement())
+  title       String
+  description String
+  answerId    Int
+  answer      Answer[]
+  authorId    Int
+  author      User     @relation(fields: [authorId], references: [id])
+}
+
+model Answer {
+  id          Int      @id @default(autoincrement())
+  title       String
+  description String
+  questionId  Int
+  authorId    Int
+  author      User     @relation(fields: [authorId], references: [id])
+  Question    Question @relation(fields: [questionId], references: [id])
 }

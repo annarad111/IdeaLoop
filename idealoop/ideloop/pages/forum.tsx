@@ -1,10 +1,14 @@
-import Navbar from "../components/Navbar";
+
+import NavbarForPages from "../components/NavbarForPages";
+import VerticalTabs from '../components/VerticalTabs';
 
 export default function Forum(){
+
     return(
         <>
-        <Navbar/>
+        <NavbarForPages/>
         <h1>Forum</h1>
+        <VerticalTabs></VerticalTabs>
         </>
     )
 }

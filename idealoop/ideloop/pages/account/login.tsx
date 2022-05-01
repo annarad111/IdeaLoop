@@ -47,7 +47,8 @@ export default function SignIn() {
   };
     try {
       await fetcher("/api/login", {user: body})
-      window.localStorage.setItem('user', JSON.stringify(body.email));
+      if (typeof body.email === "string")
+        window.localStorage.setItem('user', body.email);
       router.replace('/');
     } catch (err) {
       console.log(err.response.data);
